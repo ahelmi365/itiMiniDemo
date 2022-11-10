@@ -1,0 +1,8 @@
+<p>parent works!</p>
+
+<app-child
+[CourseNameParent]="courseName"
+(messageToParentEvent)="messageFromChild = $event">
+</app-child>
+<br />
+<h3>{{ messageFromChild }}</h3>
