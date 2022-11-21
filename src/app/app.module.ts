@@ -8,6 +8,11 @@ import { SquarePipe } from './pipes/square.pipe';
 import { MonthPipe } from './pipes/month.pipe';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import {HttpClientModule } from '@angular/common/http';
+import { EmployeesComponent } from './employees/employees.component';
+import { DepartmentsComponent } from './departments/departments.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DepartmentDetailsComponent } from './department-details/department-details.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,17 @@ import { ChildComponent } from './child/child.component';
     SquarePipe,
     MonthPipe,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    EmployeesComponent,
+    DepartmentsComponent,
+    PageNotFoundComponent,
+    DepartmentDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],

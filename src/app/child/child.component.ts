@@ -1,5 +1,6 @@
 import { EmployeeService } from './../Services/employee.service';
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { IEmployee } from '../Interfaces/iemployee'
 
 @Component({
   selector: 'app-child',
@@ -9,7 +10,9 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 export class ChildComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService) { }
-  employeeList: any;
+  employeeList: IEmployee[] = [];
+  employeeGetAllErrorMessage: string = "";
+
   @Input('CourseNameParent') courseName: string = "";
   messagetextToParent: string = "message from parent";
 
@@ -25,7 +28,27 @@ export class ChildComponent implements OnInit {
   }
   ngOnInit(): void {
 
-  this.employeeList = this.employeeService.getAllEmployees();
+    // this.employeeService.getAll()
+    //   .subscribe(data => {
+    //     this.employeeList = data;
+    //   }, err => { this.employeeGetAllErrorMessage = err });
+
+    // this.employeeService.gteAllEmps()
+    // .subscribe(empData=>{
+    //   this.employeeList = empData;
+    // }, err=>this.employeeGetAllErrorMessage = err);
+
+    this.employeeService.getAll()
+    .subscribe(
+      {
+        next:(resData)=>this.employeeList =resData,
+        error:(err)=>this.employeeGetAllErrorMessage = err,
+        complete:()=>console.log('Complete')
+
+      }
+    )
   }
+
+
 
 }

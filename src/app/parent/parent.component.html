@@ -1,8 +1,14 @@
 <p>parent works!</p>
 
+<ul>
+  <li *ngFor="let emp of employeeList">{{emp.name}}</li>
+  <li *ngIf="employeeGetAllErrorMsg"> {{employeeGetAllErrorMsg}}</li>
+</ul>
+
 <app-child
-[CourseNameParent]="courseName"
-(messageToParentEvent)="messageFromChild = $event">
+  [CourseNameParent]="courseName"
+  (messageToParentEvent)="messageFromChild = $event"
+>
 </app-child>
 <br />
 <h3>{{ messageFromChild }}</h3>

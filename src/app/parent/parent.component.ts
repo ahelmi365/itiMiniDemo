@@ -1,3 +1,4 @@
+import { IEmployee } from './../Interfaces/iemployee';
 import { ChildComponent } from './../child/child.component';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeService } from '../Services/employee.service';
@@ -14,11 +15,24 @@ export class ParentComponent implements OnInit, AfterViewInit {
 
   messageFromChild: string = "";
 
+  employeeList: IEmployee[] = [];
+
+  employeeGetAllErrorMsg: string = "";
+
   @ViewChild(ChildComponent) myChild: ChildComponent = new ChildComponent(this.employeeService);
 
 
   ngOnInit(): void {
 
+    this.employeeService.getAllEmployees()
+      .subscribe(empData => {
+        this.employeeList = empData;
+      });
+
+    this.employeeService.gteAllEmps()
+      .subscribe(res => {
+        this.employeeList = res;
+      }, err => this.employeeGetAllErrorMsg = err);
   }
 
   ngAfterViewInit() {
