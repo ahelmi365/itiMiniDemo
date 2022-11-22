@@ -29,10 +29,10 @@ export class ParentComponent implements OnInit, AfterViewInit {
         this.employeeList = empData;
       });
 
-    this.employeeService.gteAllEmps()
-      .subscribe(res => {
-        this.employeeList = res;
-      }, err => this.employeeGetAllErrorMsg = err);
+    // this.employeeService.gteAllEmps()
+    //   .subscribe(res => {
+    //     this.employeeList = res;
+    //   }, err => this.employeeGetAllErrorMsg = err);
   }
 
   ngAfterViewInit() {

@@ -38,7 +38,7 @@ export class ChildComponent implements OnInit {
     //   this.employeeList = empData;
     // }, err=>this.employeeGetAllErrorMessage = err);
 
-    this.employeeService.getAll()
+    this.employeeService.getAllEmployees()
     .subscribe(
       {
         next:(resData)=>this.employeeList =resData,

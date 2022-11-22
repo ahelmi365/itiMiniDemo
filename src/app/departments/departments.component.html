@@ -1,3 +1,8 @@
 <p>departments works!</p>
 <!-- <router-outlet></router-outlet> -->
-
+<ul>
+  <li *ngFor="let dept of allDepartments"
+  id="{{dept.id}}"
+  [class.activeDept]="isActive(dept)"
+  (click)="onDeptClick(dept.id)" >{{ dept.id }} - {{ dept.name }}</li>
+</ul>

@@ -23,27 +23,10 @@ export class EmployeeService {
   }
 
 
-  getAll(): Observable<IEmployee[]> {
-    return this.http.get<IEmployee[]>(this.URL).pipe(catchError(err => {
-      return throwError(() => err.message || "Server Erro")
-    }))
-  }
 
 
-  getAllEmp(): Observable<IEmployee[]> {
-    return this.http.get<IEmployee[]>(this.URL)
-      .pipe(catchError(err => {
-        return throwError(() => err.message || "Server Side Error")
-      }))
-  }
 
 
-  gteAllEmps(): Observable<IEmployee[]> {
-    return this.http.get<IEmployee[]>(this.URL)
-      .pipe(catchError(err => {
-        return throwError(() => err.message || "Server Side Erro")
-      }))
-  }
 
 
 

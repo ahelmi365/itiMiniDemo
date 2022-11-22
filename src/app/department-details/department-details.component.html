@@ -1,1 +1,25 @@
 <p>department-details works!</p>
+
+<div>
+  <h2>
+    You selected departmemt id: {{paramID}}
+  </h2>
+</div>
+
+<div>
+  <button (click)="goToPrevDept()" >Previous</button>
+  <button (click)="goToNextDept()" >Next</button><br><br><br>
+</div>
+
+
+<div>
+  <button (click)="goToDepartments(paramID)" >Back To Departmemts</button><br><br><br>
+</div>
+
+<div>
+  <button (click)="goToOverView()" >Overview</button>
+  <button (click)="goToContact()" >Contact</button>
+</div>
+<router-outlet></router-outlet>
+
+
